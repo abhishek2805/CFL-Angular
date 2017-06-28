@@ -1,0 +1,12 @@
+<div *ngIf='!video'>Loading</div>
+<div *ngIf='video'>
+	<h1>{{ video.name }}</h1>
+	<hr/>
+	<div style="position: relative;height: 0;padding-bottom: 56.25%" *ngIf='video?.embed'>
+		<iframe width="560" height="315" [src]="getEmbedUrl(video) | safe" frameborder="0" allowfullscreen></iframe>	
+	</div>
+
+	<div class='text-center' *ngIf='video.image && !video.embed'>
+		<img class="img-responsive img-center" [src]="video.image" alt="{{ video.name }} image">
+	</div>
+</div>
